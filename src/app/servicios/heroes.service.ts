@@ -57,20 +57,40 @@ private heroes:Heroe[] = [
   ];
 
   constructor() {
-    console.log("servicio listo para usar!!!!");
+    console.log(" servicio listo para usar!!!! ");
     }
 
-    getHeroes():Heroe[]{
+    getHeroes(): Heroe[]{
       return this.heroes;
+    }
+
+    getHeroe( idx: string) {
+      return this.heroes[idx];
+    }
+
+    buscarHeroes(termino:string){
+        let heroesArr:heroe[] = [];
+        termino = termino.toLowerCase();
+
+        for(let heroe of this.heroes){
+
+          let nombre = heroe.nombre.toLowerCase();
+
+          if(nombre.indexOf(termino)>=0){
+            heroesArr.push(heroe)
+          }
+        }
+
+        return heroesArr;
     }
 }
 
-export interface Heroe{
-  nombre:string;
-  bio:string;
-  img:string;
-  aparicion:string;
-  casa:string;
+export interface Heroe {
+  nombre: string;
+  bio: string;
+  img: string;
+  aparicion: string;
+  casa: string;
 
 
 }
